@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial scale=1.0">
+    <title>Retroboy</title>
+    <meta name="description" content="Nostalgia na palma da mão! Desde 1989 desmontando os eletrônicos de casa para o horror dos meus pais.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Barra de Navegação Superior -->
+    <div class="navbar-top">
+        <div class="container">
+            <div class="logo">
+                <a href="./index.html"><img src="Icons/Retroboy logo.png" alt="Retroboy Logo"></a>
+                <span class="store-name">Retroboy</span>
+            </div>
+            <ul>
+                <li><a href="./blog.html">Blog</a></li>
+                <li><a href="./gallery.html">Galeria</a></li>
+                <li><a href="./form.html">Orçamento</a></li>
+                <li><a href="./store.html">Loja</a></li>
+            </ul>
+            <button class="btn-mobile" onclick="openmenu()" id="btn-menu">
+                <span class="linha"></span>
+                <span class="linha"></span>
+                <span class="linha"></span>
+            </button>
+            <div class="menu-mobile" id="menu-mobile">
+                <nav>
+                    <a href="./blog.html">Blog</a>
+                    <a href="./gallery.html">Galeria</a>
+                    <a href="./form.html">Orçamento</a>
+                    <a href="./store.html">Loja</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- Título e Introdução -->
+    <div class="form-intro">
+        <h1>Faça seu Orçamento!</h1>
+        <p>Para fazer seu orçamento conosco, preencha o formulário abaixo.</p>
+    </div>
+
+    <!-- Formulário -->
+    <div class="form-budget">
+        <form method="POST" data-form>
+            <!-- Etapa 1 -->
+            <div class="form-step active">
+                <label for="nome">Nome completo</label>
+                <input type="text" name="nome" id="nome" required />
+                <label for="whatsapp">Whatsapp (Telefone com DDD)</label>
+                <input type="tel" name="whatsapp" id="whatsapp" required />
+                <label for="email">E-Mail</label>
+                <input type="email" name="email" id="email" required />
+                <label for="cidade_estado">Cidade e Estado</label>
+                <input type="text" name="cidade_estado" id="cidade_estado" required />
+                <label for="cep">CEP para calcular o frete</label>
+                <input type="text" name="cep" id="cep" required />
+                <label for="servico">Reforma ou manutenção?</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="servico" value="Reforma de console" required /> Reforma de console</label>
+                    <label><input type="radio" name="servico" value="Manutenção de console" required /> Manutenção de console</label>
+                    <label><input type="radio" name="servico" value="Manutenção de cartucho" required /> Manutenção de cartucho</label>
+                </div>
+                <button type="button" data-next>Próxima</button>
+            </div>
+            <!-- Etapa 2 para Reforma de console -->
+            <div class="form-step">
+                <label for="console-reforma">Qual é o seu console?</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="console-reforma" value="Gameboy" /> Gameboy</label>
+                    <label><input type="radio" name="console-reforma" value="Gameboy Pocket" /> Gameboy Pocket</label>
+                    <label><input type="radio" name="console-reforma" value="Gameboy Color" /> Gameboy Color</label>
+                    <label><input type="radio" name="console-reforma" value="Gameboy Advance" /> Gameboy Advance</label>
+                    <label><input type="radio" name="console-reforma" value="Gameboy Advance SP" /> Gameboy Advance SP</label>
+                    <label><input type="radio" name="console-reforma" value="Outro console" /> Outro console</label>
+                </div>
+                <label for="pecas-reforma">Quais peças você gostaria de estilizar?</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="pecas-reforma" value="Tela" /> Tela</label>
+                    <label><input type="checkbox" name="pecas-reforma" value="Som" /> Som</label>
+                    <label><input type="checkbox" name="pecas-reforma" value="Carcaça" /> Carcaça</label>
+                    <label><input type="checkbox" name="pecas-reforma" value="Entrada do carregador" /> Entrada do carregador</label>
+                    <label><input type="checkbox" name="pecas-reforma" value="Botões" /> Botões</label>
+                </div>
+                <label for="info-extra-reforma">Alguma informação extra?</label>
+                <textarea name="info-extra-reforma" id="info-extra-reforma"></textarea>
+                <label for="foto-reforma">Tem foto do console?</label>
+                <input type="file" name="foto-reforma" id="foto-reforma" />
+                <label for="termos-reforma">
+                    <input type="checkbox" name="termos-reforma" id="termos-reforma" required /> Li e concordo com os <a href="./termos.html">Termos de serviço e garantia</a>.
+                </label>
+                <button type="button" data-prev>Anterior</button>
+                <button type="submit" data-button>Enviar</button>
+            </div>
+            <!-- Etapa 2 para Manutenção de console -->
+            <div class="form-step">
+                <label for="console-manutencao">Qual é o seu console?</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="console-manutencao" value="Gameboy" /> Gameboy</label>
+                    <label><input type="radio" name="console-manutencao" value="Gameboy Pocket" /> Gameboy Pocket</label>
+                    <label><input type="radio" name="console-manutencao" value="Gameboy Color" /> Gameboy Color</label>
+                    <label><input type="radio" name="console-manutencao" value="Gameboy Advance"/> Gameboy Advance</label>
+                    <label><input type="radio" name="console-manutencao" value="Gameboy Advance SP" /> Gameboy Advance SP</label>
+                    <label><input type="radio" name="console-manutencao" value="Outro console" /> Outro console</label>
+                </div>
+                <label for="pecas-manutencao">Quais peças apresentam problemas?</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="pecas-manutencao" value="Tela" /> Tela</label>
+                    <label><input type="checkbox" name="pecas-manutencao" value="Som" /> Som</label>
+                    <label><input type="checkbox" name="pecas-manutencao" value="Carcaça" /> Carcaça</label>
+                    <label><input type="checkbox" name="pecas-manutencao" value="Entrada do carregador" /> Entrada do carregador</label>
+                    <label><input type="checkbox" name="pecas-manutencao" value="Botões" /> Botões</label>
+                </div>
+                <label for="info-extra-manutencao">Alguma informação extra?</label>
+                <textarea name="info-extra-manutencao" id="info-extra-manutencao"></textarea>
+                <label for="foto-manutencao">Tem foto do console?</label>
+                <input type="file" name="foto-manutencao" id="foto-manutencao" />
+                <label for="termos-manutencao">
+                    <input type="checkbox" name="termos-manutencao" id="termos-manutencao" required /> Li e concordo com os <a href="./termos.html">Termos de serviço e garantia</a>.
+                </label>
+                <button type="button" data-prev>Anterior</button>
+                <button type="submit" data-button>Enviar</button>
+            </div>
+            <!-- Etapa 2 para Manutenção de cartucho -->
+            <div class="form-step">
+                <label for="cartucho">O cartucho é de qual plataforma?</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="cartucho" value="Gameboy" /> Gameboy</label>
+                    <label><input type="radio" name="cartucho" value="Gameboy Color" /> Gameboy Color</label>
+                    <label><input type="radio" name="cartucho" value="Gameboy Advance" /> Gameboy Advance</label>
+                </div>
+                <label for="problema-cartucho">Qual o problema do cartucho?</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="problema-cartucho" value="Console não consegue ler" /> Console não consegue ler</label>
+                    <label><input type="checkbox" name="problema-cartucho" value="Gostaria de reprogramar o cartucho" /> Gostaria de reprogramar o cartucho</label>
+                    <label><input type="checkbox" name="problema-cartucho" value="Trocar bateria interna" /> Trocar bateria interna</label>
+                </div>
+                <label for="info-extra-cartucho">Alguma informação extra?</label>
+                <textarea name="info-extra-cartucho" id="info-extra-cartucho"></textarea>
+                <label for="termos-cartucho">
+                    <input type="checkbox" name="termos-cartucho" id="termos-cartucho" required /> Li e concordo com os <a href="./termos.html">Termos de serviço e garantia</a>.
+                </label>
+                <button type="button" data-prev>Anterior</button>
+                <button type="submit" data-button>Enviar</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Barra de Navegação Inferior -->
+    <div class="navbar-bottom">
+        <div class="container navbar-bottom-content">
+            <div class="footer-links">
+                <ul>
+                    <li><a href="./contato.html">Contato</a></li>
+                    <li><a href="./termos.html">Termos de serviço e garantia</a></li>
+                    <li><a href="./about.html">Quem é Retroboy?</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <ul class="social-icons">
+                    <li><a href="https://www.instagram.com/retroboybr/"><img src="Icons/Instagram.png" alt="Instagram Logo" width="40" height="40"></a></li>
+                    <li><a href="https://twitter.com/retroboybr"><img src="Icons/Twitter.png" alt="Twitter Logo" width="40" height="40"></a></li>
+                    <li><a href="https://www.youtube.com/retroboybrasil"><img src="Icons/YouTube.png" alt="YouTube Logo" width="40" height="40"></a></li>
+                </ul>
+                <p class="email"><a href="mailto:retroboy@gmail.com">retroboy@gmail.com</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        (function(){
+            emailjs.init("retroboyteste@gmail.com");
+        })();
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
