@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Retroboy - Loja</title>
-    <meta name="description" content="Nostalgia na palma da mão! Desde 1989 desmontando os eletrônicos de casa para o horror dos meus pais.">
+    <title>Detalhes do Produto</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -38,13 +37,35 @@
         </div>
     </div>
 
-    <!-- Loja -->
-    <header>
-        <h1>Loja</h1>
-    </header>
+    <!-- Detalhes do Produto -->
+    <div class="product-details">
+        <div class="container">
+            <div class="product-info">
+                <h2 id="product-name"></h2>
+                <p id="product-description"></p>
+                <p id="product-price"></p>
+            </div>
 
-    <div class="container store-container">
-        <!-- Os elementos dos produtos serão gerados aqui -->
+            <div class="product-images">
+                <img src="" alt="Imagem 1" id="product-image-1">
+                <img src="" alt="Imagem 2" id="product-image-2">
+            </div>
+
+            <p class="additional-info">Preencha seus dados para receber mais informações sobre as formas de pagamento, frete e garantia do produto.</p>
+
+            <form id="product-form">
+                <div class="form-group">
+                    <label for="name">Nome:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <input type="hidden" id="product-id" name="product-id">
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
     </div>
 
     <!-- Barra de Navegação Inferior -->
@@ -68,46 +89,44 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
     <script>
-        // Função para gerar os elementos HTML dos produtos
-        function generateProductElements(products) {
-            const storeContainer = document.querySelector('.store-container');
-
-            products.forEach(product => {
-                const productBox = document.createElement('div');
-                productBox.classList.add('product-box');
-                productBox.style.background = '#e0e0e0'; 
-
-                productBox.addEventListener('click', () => {
-                    window.location.href = `product.html?id=${product.id}`;
-                });
-
-                const productName = document.createElement('h3');
-                productName.textContent = product.name;
-
-                const productImage = document.createElement('img');
-                productImage.src = product.images[0]; // Use a primeira imagem do array
-                productImage.alt = product.name;
-
-                const productPrice = document.createElement('p');
-                productPrice.textContent = `R$ ${product.price.toFixed(2)}`;
-
-                productBox.appendChild(productName);
-                productBox.appendChild(productImage);
-                productBox.appendChild(productPrice);
-
-                storeContainer.appendChild(productBox);
-            });
-        }
-
         // Carregar os dados do banco de dados JSON
         fetch('data/database.json')
             .then(response => response.json())
             .then(data => {
-                generateProductElements(data);
+                const productId = new URLSearchParams(window.location.search).get('id');
+                const product = data.find(item => item.id == productId);
+
+                if (product) {
+                    document.getElementById('product-name').textContent = product.name;
+                    document.getElementById('product-description').textContent = product.description;
+                    document.getElementById('product-price').textContent = `Preço: R$ ${product.price.toFixed(2)}`;
+
+                    // Preencher imagens do produto
+                    const productImages = document.querySelectorAll('.product-images img');
+                    productImages.forEach((img, index) => {
+                        img.src = product.images[index];
+                    });
+
+                    // Adicionar o ID do produto ao formulário
+                    document.getElementById('product-id').value = productId;
+                } else {
+                    console.error('Produto não encontrado');
+                }
             })
             .catch(error => console.error('Erro ao carregar dados do banco de dados:', error));
+
+        // Enviar dados do formulário
+        document.getElementById('product-form').addEventListener('submit', event => {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const productId = document.getElementById('product-id').value;
+
+            console.log(`Nome: ${name}, E-mail: ${email}, ID do Produto: ${productId}`);
+
+        });
     </script>
 </body>
 </html>

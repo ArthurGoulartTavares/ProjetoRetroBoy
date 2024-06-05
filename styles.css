@@ -249,7 +249,7 @@ header h1 {
 .blog-post {
     width: 80%; 
     max-width: 800px;
-    background-color: #b9d3d5a3;
+    background-color: #c6e8eba3;
     border-radius: 4px;
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -506,6 +506,120 @@ form[data-form] {
 .radio-group input,
 .checkbox-group input {
     margin-right: auto;
+}
+
+/* Loja */
+
+.store-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.product-box {
+    width: 300px;
+    height: 300px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+    margin: 10px;
+}
+
+.product-box img {
+    width: 75%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.product-box h3 {
+    color:#381949;
+    margin-top: 0;
+}
+
+.product-box p {
+    color:#381949;
+    margin-bottom: 0;
+}
+
+/* Produtos */
+.product-details {
+    background-color: #b9d3d5;
+    padding: 20px 0;
+}
+
+.product-info {
+    margin-bottom: 20px;
+    color: #43105F;
+}
+
+.product-info h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.product-info p {
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+.product-images {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.product-images img {
+    max-width: 45%;
+    height: auto;
+    margin-right: 5%;
+}
+
+.additional-info {
+    margin-bottom: 20px;
+    color: #43105F;
+}
+
+#product-form {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #54A006
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #62C300;
 }
 
 

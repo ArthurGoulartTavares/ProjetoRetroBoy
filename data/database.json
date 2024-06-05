@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "name": "Gameboy Pocket Pikachu",
+        "price": 850.00,
+        "description": "Gameboy modelo Pocket, tela com retroiluminação IPS e som estereo.",
+        "images": [
+            "Itens loja/Gameboy Pikachu.jpeg",
+            "Itens loja/Gameboy Pikachu 2.jpeg"
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Gameboy Color NAV",
+        "price": 800.00,
+        "description": "Gameboy Color, tela sem retroiluminação e som estereo.",
+        "images": [
+            "Itens loja/Gameboy NES.jpeg",
+            "Itens loja/Gameboy NES 2.jpeg"
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Gameboy Advance SP Suicune",
+        "price": 1200.00,
+        "description": "Gameboy Advance SP, tela OLED, fonte de carregamento USB-C e som estereo.",
+        "images": [
+            "Itens loja/Gameboy Suicune.jpeg",
+            "Itens loja/Gameboy Suicune 2.jpeg"
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Gameboy Advance SP Kirby",
+        "price": 1050.00,
+        "description": "Gameboy Advance SP, tela com retroiluminação IPS e som estereo.",
+        "images": [
+            "Itens loja/Gameboy Kirby.jpeg",
+            "Itens loja/Gameboy Kirby 2.jpeg"
+        ]
+    }
+]

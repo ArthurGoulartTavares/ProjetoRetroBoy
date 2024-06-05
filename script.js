@@ -155,3 +155,51 @@ const formSubmit = new FormSubmit({
     form: '[data-form]',
     button: '[data-button]',
 });
+
+// Inicialização do formulário de orçamento
+if (document.querySelector('[data-form]')) {
+    new FormSubmit({
+        form: '[data-form]',
+        button: '[data-button]'
+    });
+}
+
+//Loja
+
+// Carregar os dados do banco de dados JSON
+fetch('data/database.json')
+    .then(response => response.json())
+    .then(data => {
+        const productId = new URLSearchParams(window.location.search).get('id');
+        const product = data.find(item => item.id == productId);
+
+        if (product) {
+            document.getElementById('product-name').textContent = product.name;
+            document.getElementById('product-description').textContent = product.description;
+            document.getElementById('product-price').textContent = `Preço: R$ ${product.price.toFixed(2)}`;
+
+            // Preencher imagens do produto
+            const productImages = document.querySelectorAll('.product-images img');
+            productImages.forEach((img, index) => {
+                img.src = product.images[index];
+            });
+
+            // Adicionar o ID do produto ao formulário
+            document.getElementById('product-id').value = productId;
+        } else {
+            console.error('Produto não encontrado');
+        }
+    })
+    .catch(error => console.error('Erro ao carregar dados do banco de dados:', error));
+
+// Enviar dados do formulário
+document.getElementById('product-form').addEventListener('submit', event => {
+    event.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const productId = document.getElementById('product-id').value;
+
+    console.log(`Nome: ${name}, E-mail: ${email}, ID do Produto: ${productId}`);
+
+});
